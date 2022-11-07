@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Circe', sans-serif;
+            color: #000;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            max-width: 100%;
+        }
+        .container {
+            max-width: 1330px;
+            padding: 0px 40px;
+            margin: 0px auto;
+            margin-top: 50px;
+        }
+        .ny__banner-wrapper {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 800px 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            grid-gap: 30px;
+        }
+        .ny__banner-main {
+            grid-row-start: 1;
+            grid-row-end: 4;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .ny__banner-main img {
+            display: block;
+        }
+        .ny__banner-small {
+            grid-column-start: 2;
+            border-radius: 20px;
+            background: #F6F6F6;
+            position: relative;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .ny__banner-small .ny__banner-link {
+            position: absolute;
+            left: 30px;
+            bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            max-width: 40%;
+            line-height: 22px;
+        }
+        .ny__banner-small:hover {
+            transform: scale(1.05);
+        }
+        .ny__banner-wide {
+            grid-column-start: span 2;
+            border-radius: 20px;
+            border-radius: 20px;
+            background: #F6F6F6;
+            font-size: 48px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ny__circle {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            outline: 7px solid rgba(0,0,0,0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .ny__circle:hover {
+            outline: 7px solid #FF0000;
+        }
+        .ny__circle a {
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 40px;
+            padding: 4px 16px;
+            border-radius: 8px;
+            background: #fff;
+            white-space: nowrap;
+            text-decoration: none;
+            visibility: hidden;
+            opacity: 0.0;
+            transition: 0.5s;
+        }
+        .ny__circle:nth-child(2) {
+            left: 35%;
+            top: 45%;
+        }
+        .ny__circle:nth-child(3) {
+            left: 70%;
+            top: 50%;
+        }
+        .ny__circle:nth-child(4) {
+            left: 45%;
+            top: 80%;
+        }
+        .ny__circle .ny-show {
+            opacity: 1.0;
+            visibility: visible;
+        }
+        @media (max-width: 1100px) {
+            .container {
+                max-width: none;
+                padding: 0px 30px;
+            }
+            .ny__banner-wrapper {
+                grid-template-columns: 3fr 1fr;
+            }
+            .ny__banner-small .ny__banner-link {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 700px) {
+            .container {
+                padding: 0px 20px;
+            }
+            .ny__banner-wrapper {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto;
+                grid-gap: 15px;
+                grid-template-areas: 'main main main'
+                                    'small1 small2 small3'
+                                    'wide wide wide';
+            }
+            .ny__banner-main {
+                grid-area: main;
+            }
+            .ny__banner-small {
+                min-height: 100px;
+            }
+            .ny__banner-small:nth-child(2) {
+                grid-area: small1;
+            }
+            .ny__banner-small:nth-child(3) {
+                grid-area: small2;
+            }
+            .ny__banner-small:nth-child(4) {
+                grid-area: small3;
+            }
+            .ny__banner-wide {
+                grid-area: wide;
+                min-height: 100px;
+                font-size: 24px;
+            }
+            .ny__banner-small .ny__banner-link {
+                left: 15px;
+                bottom: 10px;
+                font-size: 12px;
+                line-height: 12px;
+            }
+            .ny__circle {
+                width: 18px;
+                height: 18px;
+                outline: 7px solid rgba(0,0,0,0.4);
+            }
+            .ny__circle a {
+                left: 29px;
+                padding: 4px 4px;
+                transition: 0.5s;
+                font-size: 12px;
+            }
+            .ny__circle:nth-child(3) {
+                left: 65%;
+                top: 63%;
+            }
+            .ny__circle:nth-child(3) a {
+                left: -125px;
+            }
+        }
+    </style>
+    
+    <div class="container">
+        <div class="ny__banner-wrapper">
+            <div class="ny__banner-main">
+                <img src="/bg.png" alt="">
+                <div class="ny__circle">
+                    <a href="#">Искусственные ели</a>
+                </div>
+                <div class="ny__circle">
+                    <a href="#">Искусственные ели</a>
+                </div>
+                <div class="ny__circle">
+                    <a href="#">Искусственные ели</a>
+                </div>
+            </div>
+            <div class="ny__banner-small">
+                <a href="#">
+                    <span class="ny__banner-link">Елочные игрушки</span>
+                </a>
+            </div>
+            <div class="ny__banner-small">
+                <a href="#">
+                    <span class="ny__banner-link">Праздничный декор</span>
+                </a>
+            </div>
+            <div class="ny__banner-small">
+                <a href="#">
+                    <span class="ny__banner-link">Новогодний стол</span>
+                </a>
+            </div>
+            <div class="ny__banner-wide">
+                <a href="#">Баннер подарки</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const circleLink = document.querySelectorAll('.ny__circle');
+
+        circleLink.forEach(linkItem => {
+            const linkText = linkItem.querySelector('a');
+            linkItem.addEventListener('mouseover', () => {
+                linkText.classList.add('ny-show');
+            });
+            linkItem.addEventListener('mouseout', () => {
+                linkText.classList.remove('ny-show');
+            });
+        });
+    </script>
+
+</body>
+</html>

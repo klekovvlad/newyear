@@ -79,16 +79,26 @@
         }
         .ny__circle {
             position: absolute;
-            width: 24px;
-            height: 24px;
-            background: #fff;
-            outline: 7px solid rgba(0,0,0,0.4);
+            width: 38px;
+            height: 38px;
+            background: rgba(0,0,0,0.4);
             border-radius: 50%;
             cursor: pointer;
             transition: 0.5s;
         }
+        .ny__circle:before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            border-radius: 50%;
+        }
         .ny__circle:hover {
-            outline: 7px solid #FF0000;
+            background: #FF0000;
         }
         .ny__circle a {
             display: block;
@@ -172,12 +182,15 @@
                 line-height: 12px;
             }
             .ny__circle {
-                width: 18px;
-                height: 18px;
-                outline: 7px solid rgba(0,0,0,0.4);
+                width: 28px;
+                height: 28px;
+            }
+            .ny__circle:before {
+                width: 14px;
+                height: 14px;
             }
             .ny__circle a {
-                left: 29px;
+                left: 39px;
                 padding: 4px 4px;
                 transition: 0.5s;
                 font-size: 12px;
